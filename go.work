@@ -1,0 +1,6 @@
+go 1.20
+
+use (
+	./challenges/2023/day01
+	./challenges/2023/day02
+)
