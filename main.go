@@ -8,4 +8,5 @@ import (
 func main() {
 	fmt.Printf("Day 01:\n")
 	fmt.Printf("\tPart 01, SumOfCalibrations: %d\n", day01.SumOfCalibrations(day01.Input))
+	fmt.Printf("\tPart 02, SumOfCalibrationWithWord: %d\n", day01.SumOfCalibrationWithWord(day01.Input))
 }
