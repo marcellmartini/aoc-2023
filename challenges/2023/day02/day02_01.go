@@ -18,7 +18,7 @@ type game struct {
 	sets []set
 }
 
-func AnserDay02_01(games []string) int {
+func SumValidGamesIds(games []string) int {
 	bag := bag{12, 13, 14}
 
 	result := 0
@@ -58,7 +58,7 @@ func lineToGame(line string) game {
 
 	for _, lineSet := range xLineSets {
 		colors := strings.Split(lineSet, ",")
-		r, g, b := getSetValues(colors)
+		r, g, b := getSetOFValues(colors)
 		sets = append(sets, set{r, g, b})
 	}
 
@@ -68,27 +68,22 @@ func lineToGame(line string) game {
 	}
 }
 
-func getSetValues(parts []string) (int, int, int) {
-	r, g, b := 0, 0, 0
+func getSetOFValues(parts []string) (int, int, int) {
+	colors := map[string]int{"red": 0, "green": 0, "blue": 0}
 
 	for _, part := range parts {
 		p := strings.TrimSpace(part)
 		color := strings.Split(p, " ")
 
+		// color[0]: value of color
 		val, err := strconv.Atoi(color[0])
 		if err != nil {
 			panic(err)
 		}
 
-		switch color[1] {
-		case "red":
-			r = val
-		case "green":
-			g = val
-		case "blue":
-			b = val
-		}
+		// color[1]: color that have a value
+		colors[color[1]] = val
 	}
 
-	return r, g, b
+	return colors["red"], colors["green"], colors["blue"]
 }

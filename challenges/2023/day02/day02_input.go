@@ -1,6 +1,6 @@
 package day02
 
-var Input_01 = []string{
+var Input = []string{
 	"Game 1: 1 red, 5 blue, 1 green; 16 blue, 3 red; 6 blue, 5 red; 4 red, 7 blue, 1 green",
 	"Game 2: 4 blue; 4 red, 3 blue, 1 green; 4 red, 9 blue, 2 green; 5 blue, 7 green, 4 red",
 	"Game 3: 10 blue; 7 blue, 1 green; 19 blue, 1 green, 9 red",
