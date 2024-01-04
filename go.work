@@ -4,4 +4,5 @@ use (
 	./challenges/2023/day01
 	./challenges/2023/day02
 	./challenges/2023/day03
+	./challenges/2023/day04
 )

@@ -4,6 +4,7 @@ import (
 	"day01"
 	"day02"
 	"day03"
+	"day04"
 	"fmt"
 )
 
@@ -22,4 +23,7 @@ func main() {
 	fmt.Printf("Day 03:\n")
 	fmt.Printf("\tPart 01, SumOfAllPartNumbers: %d\n", day03.SumOfAllPartNumbers(day03.Input))
 	fmt.Printf("\tPart 01, SumAllGearRations: %d\n", day03.SumAllGearRations(day03.Input))
+
+	fmt.Printf("Day 04:\n")
+	fmt.Printf("\tPart 01, SumOfScratchcards: %d\n", day04.SumOfScratchcards(day04.Input))
 }
