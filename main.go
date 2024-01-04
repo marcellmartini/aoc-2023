@@ -26,4 +26,5 @@ func main() {
 
 	fmt.Printf("Day 04:\n")
 	fmt.Printf("\tPart 01, SumOfScratchcards: %d\n", day04.SumOfScratchcards(day04.Input))
+	fmt.Printf("\tPart 02, SumOfScratchcardsTotal: %d\n", day04.SumOfScratchcardsTotal(day04.Input))
 }
