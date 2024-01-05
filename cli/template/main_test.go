@@ -1,4 +1,4 @@
-package <day>_test
+package day01_test
 
 import (
 	"testing"
