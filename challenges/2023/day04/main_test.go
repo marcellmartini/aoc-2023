@@ -3,7 +3,7 @@ package day04_test
 import (
 	"testing"
 
-	"day04"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day04"
 )
 
 func TestSumOfScratchcards(t *testing.T) {

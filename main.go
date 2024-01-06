@@ -1,11 +1,12 @@
 package main
 
 import (
-	"day01"
-	"day02"
-	"day03"
-	"day04"
 	"fmt"
+
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day01"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day02"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day03"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day04"
 )
 
 func main() {

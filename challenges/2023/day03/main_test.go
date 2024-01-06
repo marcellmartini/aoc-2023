@@ -3,7 +3,7 @@ package day03_test
 import (
 	"testing"
 
-	"day03"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day03"
 )
 
 func TestSumOfAllPartNumbers(t *testing.T) {

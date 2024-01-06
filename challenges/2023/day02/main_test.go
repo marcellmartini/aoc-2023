@@ -1,8 +1,9 @@
 package day02_test
 
 import (
-	"day02"
 	"testing"
+
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day02"
 )
 
 func TestSumValidGames(t *testing.T) {
@@ -23,8 +24,8 @@ func TestSumValidGames(t *testing.T) {
 			expect: 8,
 		},
 		{
-			desc: "Full Input",
-			input: day02.Input,
+			desc:   "Full Input",
+			input:  day02.Input,
 			expect: 2348,
 		},
 	}
@@ -57,8 +58,8 @@ func TestSumFewestGamePossible(t *testing.T) {
 			expect: 2286,
 		},
 		{
-			desc: "Full Input",
-			input: day02.Input,
+			desc:   "Full Input",
+			input:  day02.Input,
 			expect: 76008,
 		},
 	}

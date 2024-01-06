@@ -1,8 +1,9 @@
 package day01_test
 
 import (
-	"day01"
 	"testing"
+
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day01"
 )
 
 func TestSumOfCalibrations(t *testing.T) {
@@ -55,8 +56,16 @@ func TestSumOfCalibrationWithWord(t *testing.T) {
 			expect: 29,
 		},
 		{
-			desc:   "An array entry",
-			input:  []string{"two1nine", "eightwothree", "abcone2threexyz", "xtwone3four", "4nineeightseven2", "zoneight234", "7pqrstsixteen"},
+			desc: "An array entry",
+			input: []string{
+				"two1nine",
+				"eightwothree",
+				"abcone2threexyz",
+				"xtwone3four",
+				"4nineeightseven2",
+				"zoneight234",
+				"7pqrstsixteen",
+			},
 			expect: 281,
 		},
 		{
