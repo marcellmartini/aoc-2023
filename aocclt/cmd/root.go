@@ -6,6 +6,7 @@ import (
 
 	"github.com/spf13/cobra"
 
+	"github.com/marcellmartini/aoc-in-go/aocclt/cmd/apply"
 	"github.com/marcellmartini/aoc-in-go/aocclt/cmd/get"
 )
 
@@ -19,6 +20,7 @@ coding experience during the Advent of Code event`,
 }
 
 func addSubcommands() {
+	rootCmd.AddCommand(apply.CmdApply)
 	rootCmd.AddCommand(get.CmdGet)
 }
 
