@@ -19,3 +19,8 @@
 
 # Go workspace file
 # go.work
+
+# AOC Files
+input.txt
+test*.txt
+puzzle.txt

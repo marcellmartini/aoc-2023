@@ -13,33 +13,14 @@ func TestSumOfAllPartNumbers(t *testing.T) {
 		expect int
 	}{
 		{
-			"Sample Input 1",
-			[]string{
-				"467..114..",
-				"...*......",
-				"..35..633.",
-				"......#...",
-				"617*......",
-				".....+.58.",
-				"..592.....",
-				"......755.",
-				"...$.*....",
-				".664.598..",
-			},
-			4361,
-		},
-		{
-			desc: "Sample Input 2",
-			input: []string{
-				"...*.../..",
-				"...35...63",
-			},
-			expect: 98,
+			desc:   "Test Input",
+			input:  day03.InputTest,
+			expect: day03.AnswerTest,
 		},
 		{
 			desc:   "Full Input",
 			input:  day03.Input,
-			expect: 540025,
+			expect: day03.Answer,
 		},
 	}
 
@@ -60,25 +41,14 @@ func TestSumAllGearRations(t *testing.T) {
 		expect int
 	}{
 		{
-			"Sample Input 1",
-			[]string{
-				"467..114..",
-				"...*......",
-				"..35..633.",
-				"......#...",
-				"617*......",
-				".....+.58.",
-				"..592.....",
-				"......755.",
-				"...$.*....",
-				".664.598..",
-			},
-			467835,
+			desc:   "Test Input",
+			input:  day03.InputTest,
+			expect: day03.AnswerTest,
 		},
 		{
 			desc:   "Full Input",
 			input:  day03.Input,
-			expect: 84584891,
+			expect: day03.Answer,
 		},
 	}
 	for _, tC := range testCases {
