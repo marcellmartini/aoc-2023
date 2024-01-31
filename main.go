@@ -7,14 +7,18 @@ import (
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day02"
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day03"
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day04"
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
 
 func main() {
 	fmt.Printf("Day 01:\n")
-	fmt.Printf("\tPart 01, SumOfCalibrations: %d\n", day01.SumOfCalibrations(day01.Input))
 	fmt.Printf(
-		"\tPart 02, SumOfCalibrationWithWord: %d\n",
-		day01.SumOfCalibrationWithWord(day01.Input),
+		"\tPart 01: %d\n",
+		day01.Puzzle.Solutions[puzzle.Part1](day01.Puzzle.Inputs["input"]),
+	)
+	fmt.Printf(
+		"\tPart 02: %d\n",
+		day01.Puzzle.Solutions[puzzle.Part2](day01.Puzzle.Inputs["input"]),
 	)
 
 	fmt.Printf("Day 02:\n")

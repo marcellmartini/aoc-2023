@@ -1,12 +1,12 @@
-package day01_test
+package day01
 
 import (
 	"testing"
 
-	"github.com/marcellmartini/aoc-in-go/challenges/2023/day01"
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
 
-func TestSumOfCalibrations(t *testing.T) {
+func TestPart1(t *testing.T) {
 	testCases := []struct {
 		desc   string
 		input  []string
@@ -14,27 +14,27 @@ func TestSumOfCalibrations(t *testing.T) {
 	}{
 		{
 			desc:   "Test input",
-			input:  day01.InputTest,
-			expect: day01.AnswerTest,
+			input:  Puzzle.Inputs["input_example"],
+			expect: Puzzle.Answers["answer_example"][puzzle.Part1],
 		},
 		{
 			desc:   "Full input",
-			input:  day01.Input,
-			expect: day01.Answer,
+			input:  Puzzle.Inputs["input"],
+			expect: Puzzle.Answers["answer"][puzzle.Part1],
 		},
 	}
 
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
-			got := day01.SumOfCalibrations(tC.input)
+			got := Puzzle.Solutions[puzzle.Part1](tC.input)
 			if got != tC.expect {
-				t.Errorf("SumOfCalibrations(): exprect %v, got %v", tC.expect, got)
+				t.Errorf("Part1(): exprect %v, got %v", tC.expect, got)
 			}
 		})
 	}
 }
 
-func TestSumOfCalibrationWithWord(t *testing.T) {
+func TestPart2(t *testing.T) {
 	testCases := []struct {
 		desc   string
 		input  []string
@@ -42,21 +42,21 @@ func TestSumOfCalibrationWithWord(t *testing.T) {
 	}{
 		{
 			desc:   "Test input",
-			input:  day01.InputTest2,
-			expect: day01.AnswerTest,
+			input:  Puzzle.Inputs["input_example2"],
+			expect: Puzzle.Answers["answer_example"][puzzle.Part2],
 		},
 		{
 			desc:   "Full input",
-			input:  day01.Input,
-			expect: day01.Answer,
+			input:  Puzzle.Inputs["input"],
+			expect: Puzzle.Answers["answer"][puzzle.Part2],
 		},
 	}
 
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
-			got := day01.SumOfCalibrationWithWord(tC.input)
+			got := Puzzle.Solutions[puzzle.Part2](tC.input)
 			if got != tC.expect {
-				t.Errorf("SumOfCalibrationWithWord(): exprect %v, got %v", tC.expect, got)
+				t.Errorf("Part2(): exprect %v, got %v", tC.expect, got)
 			}
 		})
 	}

@@ -1,6 +1,41 @@
 package day01
 
-import "strings"
+import (
+	"runtime"
+	"strings"
+
+	"github.com/marcellmartini/aoc-in-go/puzzle"
+)
+
+var _, fp, _, _ = runtime.Caller(0)
+
+var Puzzle = puzzle.NewBuilder().
+	ConfigurePWD(fp).
+	ConfigureSolutions(part1(), part2()).
+	LoadFiles("input_example2").
+	Build()
+
+func part1() puzzle.SolutionFunc {
+	return func(input []string) int {
+		value := 0
+
+		for _, line := range input {
+			value += getLeftRight(line)
+		}
+
+		return value
+	}
+}
+
+func part2() puzzle.SolutionFunc {
+	return func(input []string) int {
+		value := 0
+		for _, line := range input {
+			value += getLeftRightWithWord(line)
+		}
+		return value
+	}
+}
 
 var digit = map[byte]int{
 	'0': 0,
@@ -13,15 +48,6 @@ var digit = map[byte]int{
 	'7': 7,
 	'8': 8,
 	'9': 9,
-}
-
-func SumOfCalibrations(input []string) int {
-	value := 0
-
-	for _, line := range input {
-		value += getLeftRight(line)
-	}
-	return value
 }
 
 func getLeftRight(line string) int {
@@ -40,7 +66,7 @@ func getLeftRight(line string) int {
 			j -= 1
 		}
 
-		// Stop the loop if find both left and right digits 
+		// Stop the loop if find both left and right digits
 		if l != 0 && r != 0 {
 			break
 		}
@@ -61,16 +87,8 @@ var digitWithWord = map[string]int{
 	"nine":  9,
 }
 
-func SumOfCalibrationWithWord(input []string) int {
-	value := 0
-	for _, line := range input {
-		value += getLeftRightWithWord(line)
-	}
-	return value
-}
-
 func hasWordNumber(s string) (int, bool) {
-	for k, v := range digitWithWord{
+	for k, v := range digitWithWord {
 		if strings.Contains(s, k) {
 			return v, true
 		}
@@ -98,7 +116,7 @@ func getLeftRightWithWord(line string) int {
 			j -= 1
 		}
 
-		// Stop the loop if find both left and right digits 
+		// Stop the loop if find both left and right digits
 		if l != 0 && r != 0 {
 			break
 		}
