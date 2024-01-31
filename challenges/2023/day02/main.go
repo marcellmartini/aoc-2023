@@ -1,9 +1,47 @@
 package day02
 
 import (
+	"runtime"
 	"strconv"
 	"strings"
+
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
+
+var _, fp, _, _ = runtime.Caller(0)
+
+var Puzzle = puzzle.NewBuilder().
+	ConfigurePWD(fp).
+	ConfigureSolutions(part1(), part2()).
+	LoadFiles().
+	Build()
+
+func part1() puzzle.SolutionFunc {
+	return func(input []string) int {
+		bag := bag{12, 13, 14}
+
+		result := 0
+		for _, g := range input {
+			if ok, gameId := isValidGame(g, bag); ok {
+				result += gameId
+			}
+		}
+		return result
+	}
+}
+
+func part2() puzzle.SolutionFunc {
+	return func(input []string) int {
+		result := 0
+		red, green, blue := 0, 0, 0
+
+		for _, g := range input {
+			red, green, blue = fewestGamePossible(g)
+			result += red * green * blue
+		}
+		return result
+	}
+}
 
 type set struct {
 	red   int
@@ -18,18 +56,6 @@ type game struct {
 	sets []set
 }
 
-func SumValidGamesIds(games []string) int {
-	bag := bag{12, 13, 14}
-
-	result := 0
-	for _, g := range games {
-		if ok, gameId := isValidGame(g, bag); ok {
-			result += gameId
-		}
-	}
-	return result
-}
-
 func isValidGame(g string, b bag) (bool, int) {
 	game := lineToGame(g)
 	valid := true
@@ -42,17 +68,6 @@ func isValidGame(g string, b bag) (bool, int) {
 		}
 	}
 	return valid, game.id
-}
-
-func SumFewestGamePossible(games []string) int {
-	result := 0
-	red, green, blue := 0, 0, 0
-
-	for _, g := range games {
-		red, green, blue = fewestGamePossible(g)
-		result += red * green * blue
-	}
-	return result
 }
 
 func fewestGamePossible(g string) (mr, mg, mb int) {

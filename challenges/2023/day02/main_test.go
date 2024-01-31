@@ -1,12 +1,12 @@
-package day02_test
+package day02
 
 import (
 	"testing"
 
-	"github.com/marcellmartini/aoc-in-go/challenges/2023/day02"
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
 
-func TestSumValidGames(t *testing.T) {
+func TestPart1(t *testing.T) {
 	testCases := []struct {
 		desc   string
 		input  []string
@@ -14,27 +14,27 @@ func TestSumValidGames(t *testing.T) {
 	}{
 		{
 			desc:   "Test input",
-			input:  day02.InputTest,
-			expect: day02.AnswerTest,
+			input:  Puzzle.Inputs["input_example"],
+			expect: Puzzle.Answers["answer_example"][puzzle.Part1],
 		},
 		{
-			desc:   "Full Input",
-			input:  day02.Input,
-			expect: day02.Answer,
+			desc:   "Full input",
+			input:  Puzzle.Inputs["input"],
+			expect: Puzzle.Answers["answer"][puzzle.Part1],
 		},
 	}
 
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
-			got := day02.SumValidGamesIds(tC.input)
+			got := Puzzle.Solutions[puzzle.Part1](tC.input)
 			if got != tC.expect {
-				t.Errorf("SumValidGamesIds(): exprect %v, got %v", tC.expect, got)
+				t.Errorf("Part1(): exprect %v, got %v", tC.expect, got)
 			}
 		})
 	}
 }
 
-func TestSumFewestGamePossible(t *testing.T) {
+func TestPart2(t *testing.T) {
 	testCases := []struct {
 		desc   string
 		input  []string
@@ -42,21 +42,21 @@ func TestSumFewestGamePossible(t *testing.T) {
 	}{
 		{
 			desc:   "Test input",
-			input:  day02.InputTest,
-			expect: day02.AnswerTest,
+			input:  Puzzle.Inputs["input_example"],
+			expect: Puzzle.Answers["answer_example"][puzzle.Part2],
 		},
 		{
-			desc:   "Full Input",
-			input:  day02.Input,
-			expect: day02.Answer,
+			desc:   "Full input",
+			input:  Puzzle.Inputs["input"],
+			expect: Puzzle.Answers["answer"][puzzle.Part2],
 		},
 	}
 
 	for _, tC := range testCases {
 		t.Run(tC.desc, func(t *testing.T) {
-			got := day02.SumFewestGamePossible(tC.input)
+			got := Puzzle.Solutions[puzzle.Part2](tC.input)
 			if got != tC.expect {
-				t.Errorf("SumFewestGamePossible(): exprect %v, got %v", tC.expect, got)
+				t.Errorf("Part2(): exprect %v, got %v", tC.expect, got)
 			}
 		})
 	}
