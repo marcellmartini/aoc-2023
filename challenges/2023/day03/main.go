@@ -3,9 +3,54 @@ package day03
 import (
 	"bytes"
 	"regexp"
+	"runtime"
 	"strconv"
 	"unicode"
+
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
+
+var _, fp, _, _ = runtime.Caller(0)
+
+var Puzzle = puzzle.NewBuilder().
+	ConfigurePWD(fp).
+	ConfigureSolutions(part1(), part2()).
+	LoadFiles().
+	Build()
+
+func part1() puzzle.SolutionFunc {
+	return func(input []string) int {
+		numberList, _ := getAllValidNumbersAndGearlist(&input)
+
+		return sumValidNumbers(numberList)
+	}
+}
+
+func part2() puzzle.SolutionFunc {
+	return func(input []string) int {
+		result := 0
+
+		numberList, gearList := getAllValidNumbersAndGearlist(&input)
+
+		for _, g := range gearList {
+			if ok, num := isGearAdjacentTwoNumbers(g, numberList); ok {
+				n1, err := strconv.Atoi(num[0].number)
+				if err != nil {
+					panic(err)
+				}
+
+				n2, err := strconv.Atoi(num[1].number)
+				if err != nil {
+					panic(err)
+				}
+
+				result += n1 * n2
+			}
+		}
+
+		return result
+	}
+}
 
 type numbers struct {
 	number string
@@ -17,30 +62,6 @@ type numbers struct {
 type gear struct {
 	row int
 	col int
-}
-
-func SumAllGearRations(schematic []string) int {
-	result := 0
-
-	numberList, gearList := getAllValidNumbersAndGearlist(&schematic)
-
-	for _, g := range gearList {
-		if ok, num := isGearAdjacentTwoNumbers(g, numberList); ok {
-			n1, err := strconv.Atoi(num[0].number)
-			if err != nil {
-				panic(err)
-			}
-
-			n2, err := strconv.Atoi(num[1].number)
-			if err != nil {
-				panic(err)
-			}
-
-			result += n1 * n2
-		}
-	}
-
-	return result
 }
 
 func isGearAdjacentTwoNumbers(g gear, numberList []numbers) (bool, []numbers) {
@@ -83,12 +104,6 @@ func gearDeslocated(g gear, direction []int) gear {
 		g.row + direction[0],
 		g.col + direction[1],
 	}
-}
-
-func SumOfAllPartNumbers(schematic []string) int {
-	numberList, _ := getAllValidNumbersAndGearlist(&schematic)
-
-	return sumValidNumbers(numberList)
 }
 
 func getAllValidNumbersAndGearlist(schematic *[]string) ([]numbers, []gear) {
@@ -152,8 +167,9 @@ func appendValidNumber(
 // Locations relative to i, j
 //
 // -1,-1 -1, 0 -1, 1
-//  0,-1  i, j  0, 1
-//  1,-1  1, 0  1, 1
+//
+//	0,-1  i, j  0, 1
+//	1,-1  1, 0  1, 1
 var directions = [][]int{
 	{-1, -1},
 	{-1, 0},
