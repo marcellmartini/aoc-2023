@@ -3,8 +3,33 @@ package day04
 import (
 	"math"
 	"regexp"
+	"runtime"
 	"strings"
+
+	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
+
+var _, fp, _, _ = runtime.Caller(0)
+
+var Puzzle = puzzle.NewBuilder().
+	ConfigurePWD(fp).
+	ConfigureSolutions(part1(), part2()).
+	LoadFiles().
+	Build()
+
+func part1() puzzle.SolutionFunc {
+	return func(input []string) int {
+		sc := lineToCards(&input)
+		return sumOfPoints(&sc)
+	}
+}
+
+func part2() puzzle.SolutionFunc {
+	return func(input []string) int {
+		deck := lineToCards(&input)
+		return sumOfPointsAndCopies(&deck)
+	}
+}
 
 type card struct {
 	id              string
@@ -17,11 +42,6 @@ type card struct {
 type deck struct {
 	cards      []card
 	worthPoint int
-}
-
-func SumOfScratchcardsTotal(scratchcards []string) int {
-	deck := lineToCards(&scratchcards)
-	return sumOfPointsAndCopies(&deck)
 }
 
 func sumOfPointsAndCopies2(sc deck) int {
@@ -73,11 +93,6 @@ func sumOfPointsAndCopies(sc *deck) int {
 
 	// and finaly return the total of scratchcards.
 	return sc.worthPoint
-}
-
-func SumOfScratchcards(scratchcards []string) int {
-	sc := lineToCards(&scratchcards)
-	return sumOfPoints(&sc)
 }
 
 func sumOfPoints(sc *deck) int {

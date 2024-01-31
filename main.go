@@ -42,6 +42,12 @@ func main() {
 	)
 
 	fmt.Printf("Day 04:\n")
-	fmt.Printf("\tPart 01, SumOfScratchcards: %d\n", day04.SumOfScratchcards(day04.Input))
-	fmt.Printf("\tPart 02, SumOfScratchcardsTotal: %d\n", day04.SumOfScratchcardsTotal(day04.Input))
+	fmt.Printf(
+		"\tPart 01: %d\n",
+		day04.Puzzle.Solutions[puzzle.Part1](day04.Puzzle.Inputs["input"]),
+	)
+	fmt.Printf(
+		"\tPart 02: %d\n",
+		day04.Puzzle.Solutions[puzzle.Part2](day04.Puzzle.Inputs["input"]),
+	)
 }
