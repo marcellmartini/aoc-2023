@@ -7,6 +7,7 @@ import (
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day02"
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day03"
 	"github.com/marcellmartini/aoc-in-go/challenges/2023/day04"
+	"github.com/marcellmartini/aoc-in-go/challenges/2023/day05"
 	"github.com/marcellmartini/aoc-in-go/puzzle"
 )
 
@@ -50,4 +51,14 @@ func main() {
 		"\tPart 02: %d\n",
 		day04.Puzzle.Solutions[puzzle.Part2](day04.Puzzle.Inputs["input"]),
 	)
+
+	fmt.Printf("Day 05:\n")
+	fmt.Printf(
+		"\tPart 01: %d\n",
+		day05.Puzzle.Solutions[puzzle.Part1](day05.Puzzle.Inputs["input"]),
+	)
+	// fmt.Printf(
+	// 	"\tPart 02: %d\n",
+	// 	day05.Puzzle.Solutions[puzzle.Part2](day05.Puzzle.Inputs["input"]),
+	// )
 }
