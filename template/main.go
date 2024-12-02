@@ -16,19 +16,21 @@ var Puzzle = puzzle.NewBuilder().
 
 func part1() puzzle.SolutionFunc {
 	return func(input []string) int {
+		value := 0
 		//
 		// ADD YOUR CODE HERE
 		//
-		return 0
+		return value
 	}
 }
 
 func part2() puzzle.SolutionFunc {
 	return func(input []string) int {
+		value := 0
 		//
 		// ADD YOUR CODE HERE
 		//
-		return 0
+		return value
 	}
 }
 
