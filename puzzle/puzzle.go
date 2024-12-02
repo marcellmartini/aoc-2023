@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	. "github.com/marcellmartini/aoc-in-go/utils"
+	"github.com/marcellmartini/aoc-in-go/utils"
 )
 
 const (
@@ -77,7 +77,7 @@ func (pb PuzzleBuilder) LoadFiles(files ...string) PuzzleBuilder {
 // TODO can be change to io.Reader
 func (pb PuzzleBuilder) fetchFile(fileName string) {
 	content, err := pb.readFile(fileName)
-	CheckError(err)
+	utils.CheckError(err)
 
 	switch {
 	case strings.Contains(fileName, "input"):
@@ -86,7 +86,7 @@ func (pb PuzzleBuilder) fetchFile(fileName string) {
 	case strings.Contains(fileName, "answer"):
 		for _, answer := range content {
 			i, err := strconv.Atoi(answer)
-			CheckError(err)
+			utils.CheckError(err)
 			pb.Puzzle.Answers[fileName] = append(pb.Puzzle.Answers[fileName], i)
 		}
 	}
@@ -101,7 +101,7 @@ func (pb PuzzleBuilder) readFile(fileName string) ([]string, error) {
 	_, err := os.Stat(filePath)
 	if err != nil {
 		file, err = os.Create(filePath)
-		CheckError(err)
+		utils.CheckError(err)
 		defer file.Close()
 
 		if strings.Contains(fileName, "answer") {
@@ -111,7 +111,7 @@ func (pb PuzzleBuilder) readFile(fileName string) ([]string, error) {
 	}
 
 	file, err = os.Open(filePath)
-	CheckError(err)
+	utils.CheckError(err)
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
