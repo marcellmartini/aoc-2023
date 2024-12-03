@@ -106,7 +106,6 @@ func (pb PuzzleBuilder) readFile(fileName string) ([]string, error) {
 
 		if strings.Contains(fileName, "answer") {
 			fmt.Fprintf(file, "%d\n%d", -1, -1)
-			return []string{"-1", "-1"}, nil
 		}
 	}
 

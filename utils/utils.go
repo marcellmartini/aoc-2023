@@ -3,6 +3,7 @@ package utils
 import (
 	"log"
 	"os"
+	"sort"
 	"strconv"
 )
 
@@ -27,4 +28,10 @@ func Abs(x int) int {
 		return -x
 	}
 	return x
+}
+
+func RemoveIndex(s sort.IntSlice, i int) sort.IntSlice {
+	ret := make(sort.IntSlice, 0)
+	ret = append(ret, s[:i]...)
+	return append(ret, s[i+1:]...)
 }
